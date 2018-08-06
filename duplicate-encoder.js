@@ -12,8 +12,9 @@
 
 
 function duplicateEncode(word) {
-  const strArr = word.split('')
-  const sortedArr = word.split('').sort()
+  const strLowerCase = word.toLowerCase()
+  const strArr = strLowerCase.split('')
+  const sortedArr = strLowerCase.split('').sort()
   const uniqueChars = getUniqueChars(sortedArr)
   const bracketArr = replaceWithBrackets(strArr, uniqueChars)
   return bracketArr.toString().replace(/,/g, "");
