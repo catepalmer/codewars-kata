@@ -12,9 +12,8 @@
 
 
 function duplicateEncode(word) {
-  const strLowerCase = word.toLowerCase()
-  const strArr = strLowerCase.split('')
-  const sortedArr = strLowerCase.split('').sort()
+  const strArr = word.toLowerCase().split('')
+  const sortedArr = word.toLowerCase().split('').sort()
   const uniqueChars = getUniqueChars(sortedArr)
   const bracketArr = replaceWithBrackets(strArr, uniqueChars)
   return bracketArr.toString().replace(/,/g, "");
@@ -40,15 +39,57 @@ function getUniqueChars(sortedArr) {
 
 function replaceWithBrackets(strArr, uniqueChars) {
   let bracketArr = []
-  for (let i=0; i < strArr.length; i++) {
-    let matchedChars = uniqueChars.filter(char => {
-      return char == strArr[i]
+  strArr.forEach(char => {
+    let matchedChars = uniqueChars.filter(uniqueChar => {
+      return uniqueChar == char
     })
-    if (matchedChars.length > 0) {
-      bracketArr.push('(')
-    } else {
-      bracketArr.push(')')
-    }
-  }
+    bracketArr.push((matchedChars.length > 0) ? '(' : ')')
+  })
   return bracketArr
 }
+
+
+
+
+
+// function duplicateEncode(word) {
+//   const strLowerCase = word.toLowerCase()
+//   const strArr = strLowerCase.split('')
+//   const sortedArr = strLowerCase.split('').sort()
+//   const uniqueChars = getUniqueChars(sortedArr)
+//   const bracketArr = replaceWithBrackets(strArr, uniqueChars)
+//   return bracketArr.toString().replace(/,/g, "");
+// }
+
+
+// function getUniqueChars(sortedArr) {
+//   let uniqueChars = []
+//   if (sortedArr[0] != sortedArr[1]) {
+//     uniqueChars.push(sortedArr[0])
+//   }
+//   for (let i=1; i < sortedArr.length-1; i++) {
+//     if (sortedArr[i] != sortedArr[i-1] && sortedArr[i] != sortedArr[i+1]) {
+//       uniqueChars.push(sortedArr[i])
+//     }
+//   }
+//   if (sortedArr[sortedArr.length-1] != sortedArr[sortedArr.length-2]) {
+//     uniqueChars.push(sortedArr[sortedArr.length-1])
+//   }
+//   return uniqueChars
+// }
+
+
+// function replaceWithBrackets(strArr, uniqueChars) {
+//   let bracketArr = []
+//   for (let i=0; i < strArr.length; i++) {
+//     let matchedChars = uniqueChars.filter(char => {
+//       return char == strArr[i]
+//     })
+//     if (matchedChars.length > 0) {
+//       bracketArr.push('(')
+//     } else {
+//       bracketArr.push(')')
+//     }
+//   }
+//   return bracketArr
+// }
