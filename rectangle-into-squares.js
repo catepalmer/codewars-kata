@@ -2,7 +2,7 @@ function sqInRect(lng, wdth) {
   let squares = []
   const initialLng = lng
   const initialWdth = wdth
-  if (lng === wdth) {
+  if (initialLng === initialWdth) {
     return null
   } else {
     for (let i = 0; i < Math.max(initialLng, initialWdth); i++) {
@@ -13,7 +13,7 @@ function sqInRect(lng, wdth) {
         } else if (wdth > lng) {
           squares.push(lng)
           wdth -= lng
-        } else if (wdth != 0 || lng != 0){
+        } else {
           squares.push(lng)
           wdth -= lng
           lng -= wdth
