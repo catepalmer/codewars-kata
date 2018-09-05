@@ -1,5 +1,5 @@
 function firstNonRepeatingLetter(str) {
-  const sorted = str.toLowerCase().split('').sort().join('').match(/(.)\1+/g)
+  const sorted = str.toLowerCase().split('').sort().join('')
   console.log(sorted)
   const nonRepeatingLetters = sorted.filter((char, i) => {
     return (char[i] !== char[i+1])
@@ -8,6 +8,35 @@ function firstNonRepeatingLetter(str) {
 }
 
 
+function uniqChars(str) {
+  return str.replace(/[\s\S](?=([\s\S]+))/g, ((c, s) => s.indexOf(c) + 1 ? '' : c))
+}
+
+
+function uniqueChar(str) {
+  let uniq=''
+  for (var i = 0; i < str.length; i++) {
+    if(uniq.indexOf(str.charAt(i))==-1) {
+      uniq += str[i]
+    }
+  }
+  return uniq
+}  
+
+
+// function firstNonRepeatingLetter(str) {
+//   const sorted = str.toLowerCase().split('').sort().join('').match(/(.)\1+/g)
+//   console.log(sorted)
+//   const nonRepeatingLetters = sorted.filter((char, i) => {
+//     return (char[i] !== char[i+1])
+//   })
+//   return nonRepeatingLetters
+// }
+
+
+// string.slice(start, end)
+
+// .match(/(.)\1+/g)
 
 
 
