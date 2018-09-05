@@ -1,8 +1,8 @@
 function firstNonRepeatingLetter(str) {
+  if (str === '') return ''
   const arr = str.toLowerCase().split('')
-  const uniqChars = arr.filter(char => arr.indexOf(char) === arr.lastIndexOf(char)).join('')
-  const firstNonRepeating = arr.find(char => (char.toLowerCase() === uniqChars[0]))
-  
+  const firstUnique = arr.filter(char => arr.indexOf(char) === arr.lastIndexOf(char)).join('')[0]
+  return str.split('').find(char => (char.toLowerCase() === firstUnique))
 }
 
 
