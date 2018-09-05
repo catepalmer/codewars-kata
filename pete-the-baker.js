@@ -1,20 +1,8 @@
 function cakes(recipe, available) {
-  for (const ingredient in recipe) {
-    if ((available.hasOwnProperty(ingredient)) === false) return 0
-  }
-  const ingredients = Object.keys(recipe)
-  const fractions = ingredients.map(ingredient => available[ingredient] / recipe[ingredient])
+  for (const ingredient in recipe) if (available.hasOwnProperty(ingredient) === false) return 0
+  const fractions = Object.keys(recipe).map(i => available[i] / recipe[i])
   return Math.floor(Math.min(...fractions))
 }
-
-
-
-
-
-// So to make this function work, I need to divide the amount values for each ingredient key in 
-// the available ingredients by the amount value in the recipe ingredients. Then need to take the 
-// lowest of these values and round it down to the nearest whole number.
-
 
 
 
