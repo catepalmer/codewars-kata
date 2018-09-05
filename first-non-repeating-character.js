@@ -1,5 +1,4 @@
 function firstNonRepeatingLetter(str) {
-  if (str === '') return ''
   const arr = str.toLowerCase().split('')
   const firstUnique = arr.filter(char => arr.indexOf(char) === arr.lastIndexOf(char)).join('')[0]
   return (firstUnique === undefined) ? '' : str.split('').find(char => (char.toLowerCase() === firstUnique))
@@ -19,3 +18,14 @@ function firstNonRepeatingLetter(str) {
 // the input 'sTreSS' should return 'T'.
 
 // If a string contains all repeating characters, it should return the empty string ("").
+
+// Best practices solution:
+
+// function firstNonRepeatingLetter(s) {
+//   for(var i in s) {
+//     if(s.match(new RegExp(s[i],"gi")).length === 1) {
+//       return s[i];
+//     }
+//   }
+//   return '';
+// }
