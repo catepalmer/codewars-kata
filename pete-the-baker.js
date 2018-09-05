@@ -1,17 +1,10 @@
 function cakes(recipe, available) {
-  const ingredients = Object.keys(recipe)
   for (const ingredient in recipe) {
     if ((available.hasOwnProperty(ingredient)) === false) return 0
   }
-  
-  
-
-
-//   const fractions = ingredients.map(ingredient => {
-//     console.log(ingredient)
-//     return available.ingredient / recipe.ingredient
-//   })
-//   console.log(fractions)
+  const ingredients = Object.keys(recipe)
+  const fractions = ingredients.map(ingredient => available[ingredient] / recipe[ingredient])
+  return Math.floor(Math.min(...fractions))
 }
 
 
