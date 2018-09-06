@@ -1,61 +1,10 @@
 function rgb(r, g, b){
   const hexes = '0123456789ABCDEF'.split('')
-  let rHex1 = hexes[Math.floor(r/16)]
-  let rHex2 = hexes[r/16]-hexes[Math.floor(r/16)]
-  console.log(rHex1, rHex2)
+  const rHex = hexes[Math.floor(r/16)].toString() + hexes[(r/16-Math.floor(r/16))*16].toString()
+  const gHex = hexes[Math.floor(g/16)].toString() + hexes[(g/16-Math.floor(g/16))*16].toString()
+  const bHex = hexes[Math.floor(b/16)].toString() + hexes[(b/16-Math.floor(b/16))*16].toString()
+  return rHex + gHex + bHex
   }
-
-
-
-
-
-  So need to figure this out with some pseudocode:
-  const r1 = Math.floor(r/16)
-  if (r1 > 9) {
-
-  }
-
-
-
-//   function rgb(r, g, b){
-//     let rHex1 = ''
-//     let rHex2 = ''
-//     let gHex1 = ''
-//     let gHex2 = ''
-//     let bHex1 = ''
-//     let bHex2 = ''
-
-//     for (let i = 0; i < 256; i++) {
-
-//     }
-//   }
-
-//   const hexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
-//   const r1 = Math.floor(r/16)
-//   if (r1 > 9) {
-      
-//   }
-
-
-//   const r1 = Math.floor((r+1)/16)
-//   let rHex1 = r1.forEach(num => {
-      
-//   })
-
-
-
-//   function rgb(r, g, b){
-//     let rHex1 = ''
-//     let rHex2 = ''
-//     let gHex1 = ''
-//     let gHex2 = ''
-//     let bHex1 = ''
-//     let bHex2 = ''
-
-//     for (let i = 0; i < 256; i++) {
-        
-//     }
-//   }
 
 
 
