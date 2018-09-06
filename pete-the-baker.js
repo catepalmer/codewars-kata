@@ -1,9 +1,18 @@
 function cakes(recipe, available) {
   for (const ingredient in recipe) if (available.hasOwnProperty(ingredient) === false) return 0
-  const fractions = Object.keys(recipe).map(i => available[i] / recipe[i])
+  const fractions = Object.keys(recipe).map(i => available[i]/recipe[i])
   return Math.floor(Math.min(...fractions))
 }
 
+
+
+// Best practices solution:
+
+// function cakes(recipe, available) {
+//   return Object.keys(recipe).reduce(function(val, ingredient) {
+//     return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)
+//   }, Infinity)  
+// }
 
 
 
