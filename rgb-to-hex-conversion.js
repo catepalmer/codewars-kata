@@ -1,10 +1,12 @@
-function rgb(r, g, b){
+function rgb(r, g, b) {
   const hexes = '0123456789ABCDEF'.split('')
-  const rHex = hexes[Math.floor(r/16)].toString() + hexes[(r/16-Math.floor(r/16))*16].toString()
-  const gHex = hexes[Math.floor(g/16)].toString() + hexes[(g/16-Math.floor(g/16))*16].toString()
-  const bHex = hexes[Math.floor(b/16)].toString() + hexes[(b/16-Math.floor(b/16))*16].toString()
-  return rHex + gHex + bHex
-  }
+  const rgb = [r, g, b].map(item => {
+    if (item < 0) return 0
+    else if (item > 255) return 255
+    else return item
+  })
+  return rgb.map(item => hexes[Math.floor(item/16)].toString() + hexes[(item/16-Math.floor(item/16))*16].toString()).join('')
+}
 
 
 
