@@ -22,3 +22,24 @@ function rgb(r, g, b) {
 // rgb(255, 255, 300) // returns FFFFFF
 // rgb(0,0,0) // returns 000000
 // rgb(148, 0, 211) // returns 9400D3
+
+// Best practices solutions:
+
+// function rgb(r, g, b){
+//   return toHex(r)+toHex(g)+toHex(b);
+// }
+
+// function toHex(d) {
+//     if(d < 0 ) {return "00";}
+//     if(d > 255 ) {return "FF";}
+//     return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+// }
+
+
+
+
+// function rgb(r, g, b){
+//   return [r,g,b].map(function(x) {
+//     return ('0'+Math.max(0, Math.min(255, x)).toString(16)).slice(-2);
+//   }).join('').toUpperCase();
+// }
