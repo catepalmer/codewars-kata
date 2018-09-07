@@ -2,71 +2,33 @@ function tripleDouble(num1, num2) {
 
   const num1Arr = num1.toString().split('')
   const num2Arr = num2.toString().split('')
+  let triples = []
+  let doubles = null
 
-  console.log(num1Arr)
-
-  return num1Arr.filter((num, i) => {
-    console.log(num1Arr.length - 3, num, num[i+1] , num[i+2])
-    return (i < num1Arr.length - 3 && num == num[i+1] && num == num[i+2])
-  })
-
-
+  for (let i = 0; i < num1Arr.length - 2; i++) {
+    if ((num1Arr[i] == num1Arr[i+1]) && (num1Arr[i] == num1Arr[i+2])) {
+      triples.push(num1Arr[i])
+    }
+  }
 }
 
 
-
-
-
-
-// The find() method returns the value of the first element in an array 
+// The filter() method creates an array filled with all array elements 
 // that pass a test (provided as a function).
-// The find() method executes the function once for each element present 
-// in the array:
-
-// If it finds an array element where the function returns a true value, 
-// find() returns the value of that array element (and does not check 
-// the remaining values)
-// Otherwise it returns undefined
-
-// array.find(function(currentValue, index, arr),thisValue)
+// Note: filter() does not execute the function for array elements 
+// without values.
+// Note: filter() does not change the original array.
 
 
 
+// Pseudocode:
+// Need to loop through num1 and check if each value is the same as the next two 
+// values after it. If there is a value for which this is true, return this value 
+// to a variable, then search num2 for a double of this value. Need to do this for 
+// any and all triples in num1, so should be able to return more than one value 
+// from the function that loops over num1 to check for triples - so return these to 
+// an array and then map over them when running the function on num2.
 
-
-
-
-// for (let i = 0; i < num1.length - 2; i++) {
-//   (num1[i] == num1[i+1] && num1[i] == num1[i+2]) ? num1[i] : null
-// }
-
-
-
-
-// const tripledNum = num1Arr.find((num, i) => {
-//   (num == num[i+1] && num == num[i+2])
-// })
-// console.log(tripledNum)
-
-
-  // function tripleDouble(num1, num2) {
-  //   const tripledNum = num1.toString().split('').reduce((total, val, i) => {
-  //     (i < num1.length - 1 && val[i] === val[i+1] && val[i] === val[i+2]) ? val : null
-  //   }, null)
-  //   console.log(tripledNum)
-  
-  // }
-  
-
-
-// function tripleDouble (num1, num2) {
-//     const tripledNum = num1.toString().split().filter((num, i) => {
-//         console.log(num, i, num[i+1], num[i+2])
-//         return (num === num[i+1] && num === num[i+2])
-//     })
-//     console.log(tripledNum)
-
-// }
 
 
 
