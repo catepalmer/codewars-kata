@@ -1,16 +1,15 @@
 function tripleDouble(num1, num2) {
+const triples = num1.toString().match(/(\d)\1{2,}/g)
+const doubles = num2.toString().match(/(\d)\1{1,}/g)
 
-const tripleNums = num1.toString().match(/(.)\1{3,}/)
-  console.log(num1.toString().match(/(.)\1{3,}/))
-
-  
-
+}
   
 
   // str.match(/ain/g);
   // \d{3}
   // /\d{3}/g
   // (/\d\2+/)
+  // (/(.)\1{3,}/g)
 
   // const doubleNums = num2Arr.filter((num, i) => {
   //   // if (i < num1Arr.length - 1) {
@@ -30,8 +29,6 @@ const tripleNums = num1.toString().match(/(.)\1{3,}/)
   //   }
   // }
 
-  
-}
 
 
 // Pseudocode:
@@ -45,28 +42,28 @@ const tripleNums = num1.toString().match(/(.)\1{3,}/)
 
 
 
-function tripleDouble(num1, num2) {
+// function tripleDouble(num1, num2) {
 
-  const num1Arr = num1.toString().split('')
-  const num2Arr = num2.toString().split('')
-  let triples = []
-  let doubles = []
-  let match = false
+//   const num1Arr = num1.toString().split('')
+//   const num2Arr = num2.toString().split('')
+//   let triples = []
+//   let doubles = []
+//   let match = false
 
-  for (let i = 0; i < num1Arr.length - 2; i++) {
-    if ((num1Arr[i] == num1Arr[i+1]) && (num1Arr[i] == num1Arr[i+2])) {
-      triples.push(num1Arr[i])
-    }
-  }
+//   for (let i = 0; i < num1Arr.length - 2; i++) {
+//     if ((num1Arr[i] == num1Arr[i+1]) && (num1Arr[i] == num1Arr[i+2])) {
+//       triples.push(num1Arr[i])
+//     }
+//   }
 
-  for (let i = 0; i < num1Arr.length - 1; i++) {
-    if ((num2Arr[i] == num2Arr[i+1])) {
-      doubles.push(num2Arr[i])
-    }
-  }
+//   for (let i = 0; i < num1Arr.length - 1; i++) {
+//     if ((num2Arr[i] == num2Arr[i+1])) {
+//       doubles.push(num2Arr[i])
+//     }
+//   }
 
   
-}
+// }
 
 
 
