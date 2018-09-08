@@ -10,18 +10,6 @@ return matches.length > 0 ? 1 : 0
 
 
 
-// Pseudocode:
-// Need to loop through num1 and check if each value is the same as the next two 
-// values after it. If there is a value for which this is true, return this value 
-// to a variable, then search num2 for a double of this value. Need to do this for 
-// any and all triples in num1, so should be able to return more than one value 
-// from the function that loops over num1 to check for triples - so return these to 
-// an array and then map over them when running the function on num2.
-
-
-
-
-
 // Write a function
 
 // tripledouble(num1,num2)
@@ -38,3 +26,18 @@ return matches.length > 0 ? 1 : 0
 
 // tripledouble(666789, 12345667) == 1
 // If this isn't the case, return 0
+
+
+
+
+// Best practices solutions:
+
+// function tripledouble(num1, num2) {
+//   for (let i = 0; i < 10; i++) {
+//     if (new RegExp(`${i}{3}`).test(num1) && new RegExp(`${i}{2}`).test(num2)) {
+//       return 1;
+//     }
+//   }
+//   return 0;
+// }
+
