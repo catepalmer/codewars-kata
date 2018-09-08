@@ -1,37 +1,11 @@
 function countBits(n) {
-    let binary = []
-    let bitCount = 0
-    if (n >= 0 && n <= 4294967295) {
-        for (let i = 0; n > 0; i++) {
-            binary.push(n % 2)
-            n = Math.floor(n / 2)
-        }
-    }
-    binary = binary.reverse().join('')
-    bitCount = binary.match(/1/g).length
-    console.log(bitCount, binary)
+  let binary = []
+  for (let i = 0; n > 0; i++) {
+    binary.push(n % 2)
+    n = Math.floor(n / 2)
   }
-
-
-
-
-
-
-//   function countBits(n) {
-//     let binary = []
-//     let bitCount = 0
-//     if (n >= 0 && n <= 4294967295) {
-//         for (let i = 0; n > 0; i++) {
-//             binary.push(n % 2)
-//             n = Math.floor(n / 2)
-//         }
-//     }
-//     binary = binary.reverse().join('')
-//     bitCount = binary.match(/1/g).length
-//     console.log(bitCount, binary)
-//   }
-
-
+  return (binary.length > 0) ? binary.reverse().join('').match(/1/g).length : 0
+}
 
 
 
