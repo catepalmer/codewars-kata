@@ -1,33 +1,12 @@
 function tripleDouble(num1, num2) {
-const triples = num1.toString().match(/(\d)\1{2,}/g)
-const doubles = num2.toString().match(/(\d)\1{1,}/g)
 
+const triples = num1.toString().match(/(\d)\1{2,}/g) || []
+const doubles = num2.toString().match(/(\d)\1{1,}/g) || []
+
+const matches = triples.filter(tripNum => doubles.find(doubNum => tripNum.charAt(0) === doubNum.charAt(0)))
+return matches.length > 0 ? 1 : 0
 }
   
-
-  // str.match(/ain/g);
-  // \d{3}
-  // /\d{3}/g
-  // (/\d\2+/)
-  // (/(.)\1{3,}/g)
-
-  // const doubleNums = num2Arr.filter((num, i) => {
-  //   // if (i < num1Arr.length - 1) {
-  //     return (num == num[i+1] && tripleNums.find(item => item == num))
-    
-  // })
-
-  // for (let i = 0; i < num1Arr.length - 2; i++) {
-  //   if ((num1Arr[i] == num1Arr[i+1]) && (num1Arr[i] == num1Arr[i+2])) {
-  //     triples.push(num1Arr[i])
-  //   }
-  // }
-
-  // for (let i = 0; i < num1Arr.length - 1; i++) {
-  //   if ((num2Arr[i] == num2Arr[i+1])) {
-  //     doubles.push(num2Arr[i])
-  //   }
-  // }
 
 
 
@@ -38,33 +17,6 @@ const doubles = num2.toString().match(/(\d)\1{1,}/g)
 // any and all triples in num1, so should be able to return more than one value 
 // from the function that loops over num1 to check for triples - so return these to 
 // an array and then map over them when running the function on num2.
-
-
-
-
-// function tripleDouble(num1, num2) {
-
-//   const num1Arr = num1.toString().split('')
-//   const num2Arr = num2.toString().split('')
-//   let triples = []
-//   let doubles = []
-//   let match = false
-
-//   for (let i = 0; i < num1Arr.length - 2; i++) {
-//     if ((num1Arr[i] == num1Arr[i+1]) && (num1Arr[i] == num1Arr[i+2])) {
-//       triples.push(num1Arr[i])
-//     }
-//   }
-
-//   for (let i = 0; i < num1Arr.length - 1; i++) {
-//     if ((num2Arr[i] == num2Arr[i+1])) {
-//       doubles.push(num2Arr[i])
-//     }
-//   }
-
-  
-// }
-
 
 
 
