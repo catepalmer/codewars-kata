@@ -1,13 +1,30 @@
-function sumPairs (ints, s){
+const sum_pairs = (ints, s) => {
   let firstInt, secondInt
-    ints.find((int1, i) => {
-      return ints.find((int2, j) => {
+  ints.find((int1, i) => {
+    return ints.find((int2, j) => {
+      if ((i !== j) && (int1 + int2 === s)) {
         firstInt = int1
         secondInt = int2
-        return ((i !== j) && (int1 + int2 === s))
-      })
+      }
     })
-    return new Array(firstInt, secondInt)
+  })
+  if (firstInt !== undefined) return new Array(firstInt, secondInt)
+}
+
+
+
+
+function sumPairs(ints, s) {
+  let firstInt, secondInt
+  ints.find((int1, i) => {
+    return ints.find((int2, j) => {
+      if ((i !== j) && (int1 + int2 === s)) {
+        firstInt = int1
+        secondInt = int2
+      }
+    })
+  })
+  if (firstInt !== undefined) return new Array(firstInt, secondInt)
 }
 
 
