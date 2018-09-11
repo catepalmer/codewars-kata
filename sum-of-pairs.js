@@ -1,71 +1,38 @@
 const sum_pairs = (ints, s) => {
-  for (let i = 0; i < ints.length; i++) {
-    for (let j = 0; j < ints.length; j++) {
+  for (let i = 1; i < ints.length; i++) {
+    for (let j = 0; j < i; j++) {
       if ((ints[i] + ints[j] === s) && (i !== j)) {
-        return new Array(ints[i], ints[j])
+        return new Array(ints[j], ints[i])
       }
     }
   }
 }
-
 
 
 
 function sumPairs(ints, s) {
-  for (let i = 0; i < ints.length; i++) {
-    for (let j = 0; j < ints.length; j++) {
+  for (let i = 1; i < ints.length; i++) {
+    for (let j = 0; j < i; j++) {
       if ((ints[i] + ints[j] === s) && (i !== j)) {
-        return new Array(ints[i], ints[j])
+        return new Array(ints[j], ints[i])
       }
     }
   }
 }
 
 
-  let firstInt, secondInt
-  ints.find((int1, i) => {
-    return int1 + ints.find((int2, j) => {
-      if (i !== j){
-        if (int1 + int2 === s) {
-          firstInt = int1
-          secondInt = int2
-          console.log(`firstInt on line 25: ${firstInt}, secondInt: ${secondInt}, ${int1}, ${i}, ${int2}, ${j}`)
-        }
-      }
-    }) === s
-  })
-  console.log(`firstInt on line 30: ${firstInt}, secondInt: ${secondInt}`)
-  if (firstInt !== undefined) return new Array(firstInt, secondInt)
-}
-
+// Tests are passing but code is timing out.
 
 
 
 // function sumPairs(ints, s) {
-//   let firstInt, secondInt
-//   ints.find((int1, i) => {
-//     return int1 + ints.find((int2, j) => {
-//       if (i !== j){
-//         if (int1 + int2 === s) {
-//           firstInt = int1
-//           secondInt = int2
-//           console.log(`firstInt on line 25: ${firstInt}, secondInt: ${secondInt}, ${int1}, ${i}, ${int2}, ${j}`)
-//         }
+//   for (let i = 0; i < ints.length; i++) {
+//     for (let j = 0; j < ints.length; j++) {
+//       if ((ints[i] + ints[j] === s) && (i !== j)) {
+//         return new Array(ints[i], ints[j])
 //       }
-//     }) === s
-//   })
-//   console.log(`firstInt on line 30: ${firstInt}, secondInt: ${secondInt}`)
-//   if (firstInt !== undefined) return new Array(firstInt, secondInt)
-// }
-
-
-// function sumPairs(ints, s) {
-//   const firstInt = ints.find((int1, i) => {
-//     return int1 + ints.find((int2, j) => {
-//       if (i !== j) return (int1 + int2 === s)
-//     }) === s
-//   })
-//   if (firstInt !== undefined) return new Array(firstInt)
+//     }
+//   }
 // }
 
 
