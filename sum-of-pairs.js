@@ -9,19 +9,10 @@ const sum_pairs = (ints, s) => {
 }
 
 
+// Problem: my code was passing the tests but timing out. I wasn't sure how to
+// fix this so I chose to unlock the solutions without making my code pass
+// everything first.
 
-function sumPairs(ints, s) {
-  for (let i = 1; i < ints.length; i++) {
-    for (let j = 0; j < i; j++) {
-      if ((ints[i] + ints[j] === s) && (i !== j)) {
-        return new Array(ints[j], ints[i])
-      }
-    }
-  }
-}
-
-
-// Tests are passing but code is timing out.
 
 
 
@@ -66,3 +57,26 @@ function sumPairs(ints, s) {
 
 // NOTE: There will also be lists tested of lengths upwards of 10,000,000 
 // elements. Be sure your code doesn't time out.
+
+
+
+
+// Best practices solutions:
+
+// var sum_pairs=function(ints, s){
+//   var seen = {}
+//   for (var i = 0; i < ints.length; ++i) {
+//     console.log(`seen: ${seen}, s-ints[i]: ${s-ints[i]}, ints[i]: ${ints[i]}, seen[s-ints[i]]: ${seen[s-ints[i]]}`)
+//     if (seen[s - ints[i]]) return [s - ints[i], ints[i]];
+//     seen[ints[i]] = true
+//   }
+// }
+
+// let sum_pairs= (a, s) => {
+//   let mem = {};
+//   for(x of a) 
+//     if(mem[s - x])
+//       return [s - x, x];
+//     else 
+//       mem[x] = 1;
+// }
