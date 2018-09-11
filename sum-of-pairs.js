@@ -1,31 +1,72 @@
 const sum_pairs = (ints, s) => {
-  let firstInt, secondInt
-  ints.find((int1, i) => {
-    return ints.find((int2, j) => {
-      if ((i !== j) && (int1 + int2 === s)) {
-        firstInt = int1
-        secondInt = int2
+  for (let i = 0; i < ints.length; i++) {
+    for (let j = 0; j < ints.length; j++) {
+      if ((ints[i] + ints[j] === s) && (i !== j)) {
+        return new Array(ints[i], ints[j])
       }
-    })
-  })
-  if (firstInt !== undefined) return new Array(firstInt, secondInt)
+    }
+  }
 }
 
 
 
 
 function sumPairs(ints, s) {
+  for (let i = 0; i < ints.length; i++) {
+    for (let j = 0; j < ints.length; j++) {
+      if ((ints[i] + ints[j] === s) && (i !== j)) {
+        return new Array(ints[i], ints[j])
+      }
+    }
+  }
+}
+
+
   let firstInt, secondInt
   ints.find((int1, i) => {
-    return ints.find((int2, j) => {
-      if ((i !== j) && (int1 + int2 === s)) {
-        firstInt = int1
-        secondInt = int2
+    return int1 + ints.find((int2, j) => {
+      if (i !== j){
+        if (int1 + int2 === s) {
+          firstInt = int1
+          secondInt = int2
+          console.log(`firstInt on line 25: ${firstInt}, secondInt: ${secondInt}, ${int1}, ${i}, ${int2}, ${j}`)
+        }
       }
-    })
+    }) === s
   })
+  console.log(`firstInt on line 30: ${firstInt}, secondInt: ${secondInt}`)
   if (firstInt !== undefined) return new Array(firstInt, secondInt)
 }
+
+
+
+
+// function sumPairs(ints, s) {
+//   let firstInt, secondInt
+//   ints.find((int1, i) => {
+//     return int1 + ints.find((int2, j) => {
+//       if (i !== j){
+//         if (int1 + int2 === s) {
+//           firstInt = int1
+//           secondInt = int2
+//           console.log(`firstInt on line 25: ${firstInt}, secondInt: ${secondInt}, ${int1}, ${i}, ${int2}, ${j}`)
+//         }
+//       }
+//     }) === s
+//   })
+//   console.log(`firstInt on line 30: ${firstInt}, secondInt: ${secondInt}`)
+//   if (firstInt !== undefined) return new Array(firstInt, secondInt)
+// }
+
+
+// function sumPairs(ints, s) {
+//   const firstInt = ints.find((int1, i) => {
+//     return int1 + ints.find((int2, j) => {
+//       if (i !== j) return (int1 + int2 === s)
+//     }) === s
+//   })
+//   if (firstInt !== undefined) return new Array(firstInt)
+// }
 
 
 
