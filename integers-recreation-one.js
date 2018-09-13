@@ -3,14 +3,10 @@ function listSquared (m, n) {
     for(let i = m; i <= n; i++) {
         let divisors = []
         for(let j = 1; j <= i; j++) {
-            if (i % j === 0) {
-                divisors.push(j)
-            }
-            const squaredDivisors = divisors.map(divisor => divisor * divisor)
-            const sumSquaredDivisors = squaredDivisors.reduce((total, num) => total + num)
-            const squareRoot = Math.sqrt(sumSquaredDivisors)
-            if ((i === j) && (Number.isInteger(squareRoot)) && ints.includes(i) === false) {
-                    ints.push(new Array(i, sumSquaredDivisors))
+            if (i % j === 0) divisors.push(j)
+            const sum = divisors.map(divisor => divisor * divisor).reduce((total, num) => total + num)
+            if ((i === j) && (Number.isInteger(Math.sqrt(sum))) && ints.includes(i) === false) {
+                    ints.push(new Array(i, sum))
             }
         }
     }
@@ -40,3 +36,20 @@ function listSquared (m, n) {
 // list_squared(42, 250) --> [[42, 2500], [246, 84100]]
 // The form of the examples may change according to the language, see 
 // Example Tests: for more details.
+
+
+
+
+// Best practices solution:
+
+// function listSquared(m, n) {
+//     let arr = []
+//     for (let i = m; i <= n; i++){
+//       let temp = 0
+//       for (let j = 1; j <= i; j++) {
+//         if ( i % j == 0) temp += j*j
+//       }
+//       if ( Math.sqrt(temp) % 1 == 0) arr.push([i, temp])
+//     }
+//     return arr
+//   }
