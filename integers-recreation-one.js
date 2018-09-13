@@ -1,20 +1,24 @@
 function listSquared (m, n) {
     let ints = []
-    let divisors = []
-    let squaredDivisors, sumSquaredDivisors
     for(let i = m; i <= n; i++) {
+        let divisors = []
         for(let j = 1; j <= i; j++) {
             if (i % j === 0) {
-                divisors.push([j, i/j])
+                divisors.push(j)
+            }
+            const squaredDivisors = divisors.map(divisor => divisor * divisor)
+            const sumSquaredDivisors = squaredDivisors.reduce((total, num) => total + num)
+            const squareRoot = Math.sqrt(sumSquaredDivisors)
+            if ((i === j) && (Number.isInteger(squareRoot)) && ints.includes(i) === false) {
+                    ints.push(new Array(i, sumSquaredDivisors))
             }
         }
-        squaredDivisors = divisors.map(divisor => divisor * divisor)
-        sumSquaredDivisors = squaredDivisors.reduce((total, num) => total + num)
     }
-    console.log(divisors)
-    console.log(squaredDivisors)
-    console.log(sumSquaredDivisors)
+    return ints
 }
+
+
+
 
 
 // Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors 
