@@ -6,15 +6,26 @@ function getPermsLength(num, count = 1) {
 }
 
 
+function getPermsLengths(num) {
+  let arr = []
+  let dec = num
+
+  for (let i = 0; i < num; i++) {
+    arr.push(getPermsLength(dec))
+    dec--
+  }
+  return arr
+}
+
+
 function permutations(str, perms = [], idx = 0) {
   const strLen = length(str)
   const permsLen = getPermsLength(strLen)
   
   while (idx < permsLen) {
 
-    if (idx === 0) {
-      str = str
-    }
+    if (idx === 0) str = str
+
     else if (idx % (permsLen / strLen) === 0) {
       if ((permsLen - idx) === (permsLen / strLen - 1)) {
         str = str[strLen - 1] + slice(1, strLen - 1, str) + str[0]
@@ -34,6 +45,49 @@ function permutations(str, perms = [], idx = 0) {
   }
   return perms
 }
+
+
+
+
+
+
+
+
+// function getPermsLength(num, count = 1) {
+//   if (num === 1) return count
+//   count *= num
+//   num--
+//   return getPermsLength(num, count)
+// }
+
+
+// function permutations(str, perms = [], idx = 0) {
+//   const strLen = length(str)
+//   const permsLen = getPermsLength(strLen)
+  
+//   while (idx < permsLen) {
+
+//     if (idx === 0) str = str
+
+//     else if (idx % (permsLen / strLen) === 0) {
+//       if ((permsLen - idx) === (permsLen / strLen - 1)) {
+//         str = str[strLen - 1] + slice(1, strLen - 1, str) + str[0]
+//       }
+//       else {
+//         str = str[1] + str[0] + slice(2, strLen, str)
+//       }
+//     }
+//     else if (idx % ((permsLen / strLen) / (strLen - 1)) === 0) {
+//       str = slice(0, strLen - 2, str) + str[strLen - 1] + str[strLen - 2]
+//     }
+//     else {
+//       str = slice(0, strLen - 2, str) + str[strLen - 1], str[strLen - 2]
+//     }
+//     perms.push(str)
+//     idx++
+//   }
+//   return perms
+// }
 
 
 
