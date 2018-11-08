@@ -1,4 +1,4 @@
-function getPermsLength (num, count = 1) {
+function getPermsLength(num, count = 1) {
   if (num === 1) return count
   count *= num
   num--
@@ -10,31 +10,71 @@ function permutations(str, perms = [], idx = 0) {
   const permsLen = getPermsLength(strLen)
   const strLen = length(str)
 
-  if (idx === permsLen) return perms
+  while (idx < permsLen) {
 
-  if (idx === 0) {
-    str = str
-  }
-  else if (idx % (permsLen / strLen) === 0) {
-    if ((permsLen - idx) === (permsLen / strLen - 1)) {
-      str = str[strLen-1] + slice(1, strLen-1, str) + str[0] 
+    if (idx === 0) {
+      str = str
+    }
+    else if (idx % (permsLen / strLen) === 0) {
+      if ((permsLen - idx) === (permsLen / strLen - 1)) {
+        str = str[strLen - 1] + slice(1, strLen - 1, str) + str[0]
+      }
+      else {
+        str = str[1] + str[0] + slice(2, strLen, str)
+      }
+    }
+    else if (idx % ((permsLen / strLen) / (strLen - 1)) === 0) {
+      str = str[0] + str[2] + str[1] + str[strLen - 1]
     }
     else {
-      str = str[1] + str[0] + slice(2, strLen, str)
+      str = slice(0, strLen - 2, str) + str[strLen - 1], str[strLen - 2]
     }
-  }
-  else if (idx % ((permsLen / strLen) / (strLen-1)) === 0) {
-    str = str[0] + str[2] + str[1] + str[strLen-1]
-  }
-  else {
-    str = slice(0, strLen-2, str) + str[strLen-1], str[strLen-2]
-  }
-  perms.push(str)
-  idx++
+    perms.push(str)
+    idx++
 
-  return permutations(str, perms, idx)
+    return perms
+  }
 }
 
+
+
+
+
+
+
+
+// function permutations(str, perms = [], idx = 0) {
+//   const permsLen = getPermsLength(strLen)
+//   const strLen = length(str)
+
+//   while (true) {
+
+//     if (idx === permsLen) return perms
+//     if (idx === 0) {
+//       str = str
+//     }
+//     else if (idx % (permsLen / strLen) === 0) {
+//       if ((permsLen - idx) === (permsLen / strLen - 1)) {
+//         str = str[strLen - 1] + slice(1, strLen - 1, str) + str[0]
+//       }
+//       else {
+//         str = str[1] + str[0] + slice(2, strLen, str)
+//       }
+//     }
+//     else if (idx % ((permsLen / strLen) / (strLen - 1)) === 0) {
+//       str = str[0] + str[2] + str[1] + str[strLen - 1]
+//     }
+//     else {
+//       str = slice(0, strLen - 2, str) + str[strLen - 1], str[strLen - 2]
+//     }
+//     perms.push(str)
+//     idx++
+
+//     return permutations(str, perms, idx)
+    
+//     break
+//   }
+// }
 
 
 
