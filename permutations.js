@@ -20,21 +20,21 @@ function getPermsLengths(num) {
 
 function permutations(str, perms = [], idx = 0) {
   const strLen = length(str)
-  const permsLen = getPermsLength(strLen)
+  const permsLengths = getPermsLengths(strLen)
   
-  while (idx < permsLen) {
+  while (idx < permsLengths[0]) {
 
     if (idx === 0) str = str
 
     else if (idx % (permsLen / strLen) === 0) {
-      if ((permsLen - idx) === (permsLen / strLen - 1)) {
+      if ((permsLengths - idx) === (permsLengths / strLen - 1)) {
         str = str[strLen - 1] + slice(1, strLen - 1, str) + str[0]
       }
       else {
         str = str[1] + str[0] + slice(2, strLen, str)
       }
     }
-    else if (idx % ((permsLen / strLen) / (strLen - 1)) === 0) {
+    else if (idx % ((permsLengths / strLen) / (strLen - 1)) === 0) {
       str = slice(0, strLen - 2, str) + str[strLen - 1] + str[strLen - 2]
     }
     else {
