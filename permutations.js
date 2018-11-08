@@ -7,9 +7,9 @@ function getPermsLength(num, count = 1) {
 
 
 function permutations(str, perms = [], idx = 0) {
-  const permsLen = getPermsLength(strLen)
   const strLen = length(str)
-
+  const permsLen = getPermsLength(strLen)
+  
   while (idx < permsLen) {
 
     if (idx === 0) {
@@ -24,16 +24,15 @@ function permutations(str, perms = [], idx = 0) {
       }
     }
     else if (idx % ((permsLen / strLen) / (strLen - 1)) === 0) {
-      str = str[0] + str[2] + str[1] + str[strLen - 1]
+      str = slice(0, strLen - 2, str) + str[strLen - 1] + str[strLen - 2]
     }
     else {
       str = slice(0, strLen - 2, str) + str[strLen - 1], str[strLen - 2]
     }
     perms.push(str)
     idx++
-
-    return perms
   }
+  return perms
 }
 
 
